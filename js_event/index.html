@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .main_container {
+            background-image: url(./images/bg.jpg);
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .radio {
+            height: 500px;
+            width: 500px;
+            margin: 0 auto;
+            float: left;
+
+        }
+
+        .radio img {
+            height: 600px;
+            width: 600px;
+        }
+
+        .play {
+            height: 105px;
+            width: 105px;
+            border-radius: 50%;
+            margin-top: 200px;
+            margin-left: -110px;
+            color: black;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: transparent;
+            cursor: pointer;
+            border: none;
+
+        }
+
+        .buttons {
+            height: 100px;
+            width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 190px;
+            margin-left: 18px;
+            gap: 22px;
+            color: black;
+
+        }
+
+        .pause {
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+            color: black;
+            background-color: transparent;
+            cursor: pointer;
+            border: none;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .list {
+            width: 100%;
+            height: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+
+        }
+
+        .list button {
+            background-color: rgba(255, 255, 255, 0.096);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-size: 1.1rem;
+            font-family: sans-serif;
+            height: 20%;
+            width: 25%;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            margin-right: 5%;
+        }
+
+        .list button:hover {
+            transition: 0.4s all ease-in-out;
+            background-color: rgb(92, 41, 40);
+        }
+
+        @media (max-width:400px) {
+
+            .main_container {
+                height: 100%;
+            }
+
+            .list button {
+                width: 100%;
+            }
+
+            .list {
+                height: 50%;
+                align-items: center;
+                margin-top: 10%;
+            }
+
+            .radio img {
+                width: 100%;
+                height: auto;
+            }
+
+            .radio {
+                width: 100%;
+                height: 40%;
+            }
+
+            .buttons {
+                width: 222px;
+                top: 108px;
+                margin-left: 0px;
+                gap: 0px;
+                color: black;
+            }
+
+            .pause {
+                font-size: 0.44rem;
+                color: rgb(0, 0, 0);
+                font-weight: bold;
+            }
+
+            .play {
+
+                margin-top: 110px;
+                margin-left: -153px;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <audio src="./Audio/song-1.mp3" id="audio1"></audio>
+    <audio src="./Audio/song-2.mp3" id="audio2"></audio>
+    <audio src="./Audio/song-3.mp3" id="audio3"></audio>
+    <audio src="./Audio/song-4.mp3" id="audio4"></audio>
+    <audio src="./Audio/song-5.mp3" id="audio5"></audio>
+
+
+    <div class="main_container">
+        <div class="radio">
+            <img src="./images/radio.png" alt="RADIO">
+
+            <div class="buttons">
+
+                <button class="pause" onclick="pause()">pause</button>
+
+            </div>
+        </div>
+        <button class="play" onclick="play()">play</button>
+
+
+        <div class="list">
+            <button onclick="playSong1()">Press 1 : Jeena Haram Kar Diya</button>
+            <button onclick="playSong2()">Press 2 : Dil kehta hai chal unse mile</button>
+            <button onclick="playSong3()">Press 3 : Teri chunariya</button>
+            <button onclick="playSong4()">Press 4 : Teri umeed tera inteza</button>
+            <button onclick="playSong5()">Press 5 : Dil ne ye Kaha he Dil se</button>
+
+        </div>
+    </div>
+
+    <script>
+        let song1 = document.getElementById('audio1');
+        let song2 = document.getElementById('audio2');
+        let song3 = document.getElementById('audio3');
+        let song4 = document.getElementById('audio4');
+        let song5 = document.getElementById('audio5');
+
+        function pause() {
+            song1.pause();
+            song2.pause();
+            song3.pause();
+            song4.pause();
+            song5.pause()
+
+        }
+
+        function play() {
+            song1.play();
+        }
+
+        function playSong1() {
+            song1.play();
+            song2.pause();
+            song3.pause();
+            song4.pause();
+            song5.pause();
+
+            song2.load();
+            song3.load();
+            song4.load();
+            song5.load();
+        }
+
+
+
+        function playSong1() {
+            song1.play();
+            song2.pause();
+            song3.pause();
+            song4.pause();
+            song5.pause();
+
+            song2.load();
+            song3.load();
+            song4.load();
+            song5.load();
+        }
+
+
+        function playSong2() {
+            song1.pause();
+            song2.play();
+            song3.pause();
+            song4.pause();
+            song5.pause();
+
+            song1.load();
+            song3.load();
+            song4.load();
+            song5.load();
+        }
+
+
+        function playSong3() {
+            song1.pause();
+            song2.pause();
+            song3.play();
+            song4.pause();
+            song5.pause();
+
+            song1.load();
+            song2.load();
+            song4.load();
+            song5.load();
+        }
+
+
+        function playSong4() {
+            song1.pause();
+            song2.pause();
+            song3.pause();
+            song4.play();
+            song5.pause();
+
+            song1.load();
+            song2.load();
+            song3.load();
+            song5.load();
+        }
+
+
+        function playSong5() {
+            song1.pause();
+            song2.pause();
+            song3.pause();
+            song4.pause();
+            song5.play();
+
+            song1.load();
+            song2.load();
+            song3.load();
+            song4.load();
+
+        }
+
+
+        window.addEventListener('keypress', (event) => {
+
+
+            if (event.key === '1') {
+                song1.play();
+                song2.pause();
+                song3.pause();
+                song4.pause();
+                song5.pause();
+
+                song2.load();
+                song3.load();
+                song4.load();
+                song5.load();
+
+            } else if (event.key === '2') {
+                song1.pause();
+                song2.play();
+                song3.pause();
+                song4.pause();
+                song5.pause();
+
+
+                song1.load();
+                song3.load();
+                song4.load();
+                song5.load();
+            } else if (event.key === '3') {
+                song1.pause();
+                song2.pause();
+                song3.play();
+                song4.pause();
+                song5.pause();
+
+                song1.load();
+                song2.load();
+                song4.load();
+                song5.load();
+            } else if (event.key === '4') {
+                song1.pause();
+                song2.pause();
+                song3.pause();
+                song4.play();
+                song5.pause();
+
+                song1.load();
+                song2.load();
+                song3.load();
+                song5.load();
+
+            } else if (event.key === '5') {
+                song1.pause();
+                song2.pause();
+                song3.pause();
+                song4.pause();
+                song5.play();
+
+                song1.load();
+                song2.load();
+                song3.load();
+                song4.load();
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>
